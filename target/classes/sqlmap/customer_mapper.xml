@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="customer">
+<!--전체 고객목록  -->
+<select id='list' resultType='customer.CustomerDTO'>
+select * from customer
+</select>
+
+<!-- 선택한 (#{id} )고객정보 -->
+<select id='info' resultType='customer.CustomerDTO'>
+select * from customer where id = #{id} 
+</select>
+
+<!--선택한 고객정보 삭제  -->
+<select id='delete'>
+delete  from customer where id = #{id}
+</select>
+
+
+<!-- 고객정보 수정저장 where id = #{id} ->이유는 : 전제 고객의 정보가 수정되면안되니까-->
+<update id="update">
+	update customer
+	set  name = #{name}, gender = #{gender} , email = #{email}, phone=#{phone}
+	where id = #{id}
+</update>
+
+<!-- 신규고객정보저장 -->
+<insert id="insert">
+insert into customer(name, gender,email,phone)
+values(#{name}, #{gender},#{email},#{phone})</insert>
+</mapper>  

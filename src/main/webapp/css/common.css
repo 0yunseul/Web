@@ -1,0 +1,35 @@
+@charset "UTF-8";
+body{
+	text-align : center;
+}
+.category {	
+	background-color : #123;}
+
+table{margin: 0 auto;}
+table th, table td { border : 1px solid #b0b0b0;}
+table tr { height : 46px; }
+table.tb-list  tr { height : 38px; }
+table td {padding : 8px 10px }
+table th {background-color: #f6f6f6; text-align : center;}
+a:link , a:visited { text-decoration : none; color:initial; }
+a:hover {text-decoration: underline; color:#DC0505;}
+div.btnSet{margin : 20px auto !important;}
+
+.w-pct80 {width:80%}
+.w-pct60 {width:80%}
+.w-pct40 {width:80%}
+
+.w-px40{width:40px}
+.w-px60{width:60px}
+.w-px80{width:80px}
+.w-px100{width:100px}
+.w-px120{width:120px}
+.w-px140{width:140px}
+.w-px160{width:160px}
+.w-px200{width:200px}
+.w-px220{width:220px}
+.w-px250{width:250px}
+.w-px300{width:300px}
+.w-px400{width:400px}
+.w-px500{width:500px}
+.w-px600{width:600px}
