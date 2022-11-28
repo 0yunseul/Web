@@ -9,19 +9,21 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class HanulFactory {
 	private static SqlSessionFactory factory;
-	static {
-		String resource = "mybatis/hanul_config.xml";
-		InputStream inputStream;
-		try {
-			inputStream = Resources.getResourceAsStream(resource);
-			factory = new SqlSessionFactoryBuilder().build(inputStream);
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
 	public static SqlSessionFactory getInstance() {
+		//싱글톤으로 SqlSessionFactory 생성하기
+		
+		if( factory == null ) {
+			String resource = "mybatis/hanul_config.xml";
+			InputStream inputStream;
+			try {
+				inputStream = Resources.getResourceAsStream(resource);
+				factory
+					= new SqlSessionFactoryBuilder().build(inputStream);
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
 		return factory;
 	}
-
 }

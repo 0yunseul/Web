@@ -1,9 +1,10 @@
 package customer;
 
 public class CustomerDTO {
-	//필드를 선언한다 :DB table의 컬럼명과 동일
+	//필드선언 기준: DB table의 컬럼명
 	private int id;
 	private String name, email, gender, phone;
+	
 	public int getId() {
 		return id;
 	}

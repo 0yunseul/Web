@@ -20,22 +20,24 @@
 	<!-- Page content-->
 	<div class="container-fluid">
 		<h2 class="mt-4">사원목록</h2>
+		<form method='post' action='list.hr'>
 		<div id='list-top' class='w-px900'>
 		<ul>
 			<li>부서명</li>
 			<li>
-				<select class='w-px200'>
-					
-				<c:forEach items='${departments}' var="name">
-					<option> ${name.department_name}			
-					</option>
+				<!-- 선택한 부서의 사원목록을 조회하도록 -->
+				<select name='department_id' class='w-px200' onchange="$('form').submit()">
+					<option value='-1'>전체부서</option>
+					<c:forEach items='${departments}' var='d'>
+					<option ${department_id eq d.department_id ? 'selected' : ''} 
+					value='${d.department_id}'> ${d.department_name}</option>
 					</c:forEach>
-				
-<!-- 					<option>총무부</option> -->
 				</select>
 			</li>
 		</ul>
 		</div>
+		</form>
+		
 		<table class='w-px900 tb-list'>
 		<colgroup>
 			<col width='80px'>

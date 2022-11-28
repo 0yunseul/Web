@@ -25,10 +25,10 @@
 			<td>${dto.employee_id}</td>
 		</tr>
 		<tr><th>사원명</th>
-			<td>${dto.name }</td>
+			<td>${dto.name}</td>
 		</tr>
 		<tr><th>이메일</th>
-			<td>${dto.email}</td>
+			<td>${dto.email }</td>
 		</tr>
 		<tr><th>전화번호</th>
 			<td>${dto.phone_number }</td>
@@ -46,15 +46,17 @@
 			<td>${dto.job_title }</td>
 		</tr>
 		<tr><th>관리자</th>
-			<td>${dto.manager_name}</td>
+			<td>${dto.manager_name }</td>
 		</tr>
 		</table>
-		<div class= 'btnSet'>
-			<button class='btn btn-primary' onclick='location="list.hr"'>사원목록 </button>
+		<div class='btnSet'>
+			<button class='btn btn-primary' onclick='location="list.hr"'>사원목록</button>
+				<button class='btn btn-primary' onclick='location="modify.hr?id=${dto.employee_id}"'>정보수정</button>
 		</div>
-
 	</div>
 </div>
 </div>
 </body>
 </html>
+
+

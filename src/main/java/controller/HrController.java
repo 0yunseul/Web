@@ -39,6 +39,10 @@ public class HrController extends HttpServlet {
 			cmd.exec(request, response);
 			
 			view = "employee/info.jsp";
+		}else if (uri.equals("/modify.hr")) {
+			//사원정보 수정홤ㄴ 요청
+			
+			view = "employee/modify.jsp";
 		}
 		
 		if( redirect ) response.sendRedirect(view);
@@ -51,4 +55,3 @@ public class HrController extends HttpServlet {
 	
 
 }
-
