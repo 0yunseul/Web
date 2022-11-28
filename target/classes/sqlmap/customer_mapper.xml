@@ -30,4 +30,6 @@ delete  from customer where id = #{id}
 <insert id="insert">
 insert into customer(name, gender,email,phone)
 values(#{name}, #{gender},#{email},#{phone})</insert>
+
+
 </mapper>  

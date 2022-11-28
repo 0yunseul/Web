@@ -20,11 +20,27 @@
 	<!-- Page content-->
 	<div class="container-fluid">
 		<h2 class="mt-4">사원목록</h2>
-		<table class='w-px800 tb-list'>
+		<div id='list-top' class='w-px900'>
+		<ul>
+			<li>부서명</li>
+			<li>
+				<select class='w-px200'>
+					
+				<c:forEach items='${departments}' var="name">
+					<option> ${name.department_name}			
+					</option>
+					</c:forEach>
+				
+<!-- 					<option>총무부</option> -->
+				</select>
+			</li>
+		</ul>
+		</div>
+		<table class='w-px900 tb-list'>
 		<colgroup>
 			<col width='80px'>
-			<col width='150px'>
-			<col width='150px'>
+			<col width='230px'>
+			<col width='200px'>
 			<col>
 			<col width='120px'>
 		</colgroup>
@@ -35,13 +51,16 @@
 			<th>업무</th>
 			<th>입사일자</th>
 		</tr>
+		<c:forEach items='${list}' var='dto'>
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>${dto.employee_id }</td>
+			<td><a href='info.hr?id=${dto.employee_id}'>${dto.name}</a></td>
+<%-- 			<td>${dto.last_name} ${dto.first_name}</td> --%>
+			<td>${dto.department_name }</td>
+			<td>${dto.job_title }</td>
+			<td>${dto.hire_date }</td>
 		</tr>
+		</c:forEach>
 		</table>
 
 	</div>
