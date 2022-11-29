@@ -56,7 +56,8 @@ public class HrController extends HttpServlet {
 			//사원정보를 변경한 뒤 저장하는 처리를 요청
 			cmd= new EmployeeUpdate();
 			cmd.exec(request, response); 
-			view = "info.hr?id=100" + request.getParameter("employee_id");
+			
+			view = "info.hr?id=" + request.getParameter("employee_id");
 			redirect = true;
 			
 		}
