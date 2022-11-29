@@ -11,8 +11,8 @@ public class EmployeeInfo implements Command {
 
 	@Override
 	public void exec(HttpServletRequest request, HttpServletResponse response) {
-		int id = Integer.parseInt( request.getParameter("id") );
 		
+		int id = Integer.parseInt( request.getParameter("id") );		
 		//선택한 사원정보를 DB에서 조회해온다
 		HrDAO dao = new HrDAO();
 		EmployeeDTO dto = dao.employee_info(id);

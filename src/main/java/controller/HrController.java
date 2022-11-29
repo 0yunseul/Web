@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.Command;
+import hr.command.EmployeeCode;
 import hr.command.EmployeeInfo;
 import hr.command.EmployeeList;
+import hr.command.EmployeeUpdate;
 
 @WebServlet("*.hr")
 public class HrController extends HttpServlet {
@@ -40,9 +42,23 @@ public class HrController extends HttpServlet {
 			
 			view = "employee/info.jsp";
 		}else if (uri.equals("/modify.hr")) {
-			//사원정보 수정홤ㄴ 요청
+			//사원정보 수정화면 요청
+			cmd = new EmployeeInfo();
+			cmd.exec(request, response);
 			
+			//코드 정보 조회 요청
+			cmd = new EmployeeCode();
+			cmd.exec(request, response);
+			
+			//응답화면연결
 			view = "employee/modify.jsp";
+		}else if(uri.equals("/update.hr")) {
+			//사원정보를 변경한 뒤 저장하는 처리를 요청
+			cmd= new EmployeeUpdate();
+			cmd.exec(request, response); 
+			view = "info.hr?id=100" + request.getParameter("employee_id");
+			redirect = true;
+			
 		}
 		
 		if( redirect ) response.sendRedirect(view);
