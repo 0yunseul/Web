@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.Command;
 import hr.command.EmployeeCode;
+import hr.command.EmployeeDelete;
 import hr.command.EmployeeInfo;
+import hr.command.EmployeeInsert;
 import hr.command.EmployeeList;
 import hr.command.EmployeeUpdate;
 
@@ -41,23 +43,46 @@ public class HrController extends HttpServlet {
 			cmd.exec(request, response);
 			
 			view = "employee/info.jsp";
-		}else if (uri.equals("/modify.hr")) {
-			//사원정보 수정화면 요청
+			
+		}else if( uri.equals("/modify.hr")) {
+			//사원정보수정화면 요청
 			cmd = new EmployeeInfo();
 			cmd.exec(request, response);
 			
-			//코드 정보 조회 요청
+			//코드정보조회요청
 			cmd = new EmployeeCode();
 			cmd.exec(request, response);
 			
-			//응답화면연결
 			view = "employee/modify.jsp";
-		}else if(uri.equals("/update.hr")) {
-			//사원정보를 변경한 뒤 저장하는 처리를 요청
-			cmd= new EmployeeUpdate();
-			cmd.exec(request, response); 
+			
+		}else if( uri.equals("/update.hr") ) {
+			//사원정보변경저장처리 요청
+			cmd = new EmployeeUpdate();
+			cmd.exec(request, response);
 			
 			view = "info.hr?id=" + request.getParameter("employee_id");
+			redirect = true;
+			
+		}else if( uri.equals("/delete.hr") ) {
+			//사원정보삭제처리 요청
+			cmd = new EmployeeDelete();
+			cmd.exec(request, response);
+			
+			view = "list.hr";
+			redirect = true;
+		}else if(uri.equals("/new.hr")) {
+			cmd = new EmployeeCode();
+			cmd.exec(request, response);
+			
+			view="employee/new.jsp";
+		}else if (uri.equals("/insert.hr")) {
+			//신규 사원을 등록처리 
+			//요청
+			cmd = new EmployeeInsert();
+			cmd.exec(request, response);
+			
+			//사용자가 응답받을 화면 요청
+			view="list.hr";
 			redirect = true;
 			
 		}
